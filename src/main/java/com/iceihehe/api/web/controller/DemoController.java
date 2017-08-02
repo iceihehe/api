@@ -1,5 +1,6 @@
 package com.iceihehe.api.web.controller;
 
+import com.iceihehe.api.common.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,19 +13,25 @@ public class DemoController {
 
     @RequestMapping
     @ResponseBody
-    public String demoRoot(){
-        return "Hello World!";
+    public Message demoRoot(){
+        String data = "This is root!";
+        Message message =  new Message(data);
+        return message;
     }
 
     @RequestMapping(params = "name")
     @ResponseBody
-    public String demoParam(@RequestParam("name") String name){
-        return "This is params " + name + "!";
+    public Message demoParam(@RequestParam("name") String name){
+        String data = "This is param " + name + "!";
+        Message message =  new Message(data);
+        return message;
     }
 
     @RequestMapping(value = "{name}")
     @ResponseBody
-    public String demoPath(@PathVariable("name") String name){
-        return "This is path " + name + "!";
+    public Message demoPath(@PathVariable("name") String name){
+        String data = "This is path " + name + "!";
+        Message message =  new Message(data);
+        return message;
     }
 }
