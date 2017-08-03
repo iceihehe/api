@@ -1,11 +1,14 @@
 package com.iceihehe.api.web.controller.filter;
 
+import com.iceihehe.api.common.Message;
+import com.iceihehe.api.common.constant.Code;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import java.io.IOException;
+
 
 @Component
 public class LoginFilter implements Filter {
@@ -20,7 +23,17 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        LOGGER.info("haha");
-        chain.doFilter(request, response);
+        LOGGER.info("xi");
+        Boolean ok = false;
+
+        if (ok) {
+            chain.doFilter(request, response);
+        } else{
+            Message message = new Message();
+            message.setCode(Code.LOGIN_REQUIRED);
+            message.setMessage("Login required!");
+
+            response.getWriter().append(message.toJSONString());
+        }
     }
 }

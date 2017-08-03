@@ -15,7 +15,8 @@ public class DemoController {
     @ResponseBody
     public Message demoRoot(){
         String data = "This is root!";
-        Message message =  new Message(data);
+        Message message =  new Message();
+        message.setMessage(data);
         return message;
     }
 
@@ -23,7 +24,8 @@ public class DemoController {
     @ResponseBody
     public Message demoParam(@RequestParam("name") String name){
         String data = "This is param " + name + "!";
-        Message message =  new Message(data);
+        Message message =  new Message();
+        message.setMessage(data);
         return message;
     }
 
@@ -31,7 +33,8 @@ public class DemoController {
     @ResponseBody
     public Message demoPath(@PathVariable("name") String name){
         String data = "This is path " + name + "!";
-        Message message =  new Message(data);
+        Message message =  new Message();
+        message.setMessage(data);
         return message;
     }
 
@@ -39,7 +42,8 @@ public class DemoController {
     @ResponseBody
     public Message demoSub(){
         String data = "This is sub!";
-        Message message =  new Message(data);
+        Message message =  new Message();
+        message.setMessage(data);
         return message;
     }
 }

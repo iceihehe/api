@@ -1,30 +1,24 @@
 package com.iceihehe.api.common;
 
-import static com.iceihehe.api.common.constant.Code.SUCCESS;
+import com.iceihehe.api.common.constant.Code;
+import org.json.simple.JSONObject;
 
-public class Message {
+public class Message extends JSONObject {
 
-    private Integer code = SUCCESS;
-
-    private Object data = new Object();
-
-    public Message(Object data){
-        this.data = data;
+    public Message(){
+        this.put("code", Code.SUCCESS);
     }
 
-    public Integer getCode() {
-        return code;
+    public void setCode(Integer code){
+        this.put("code", code);
     }
 
-    public void setCode(Integer code) {
-        this.code = code;
+    public void setData(JSONObject data){
+        this.put("data", data);
     }
 
-    public Object getData() {
-        return data;
+    public void setMessage(String message){
+        this.put("msg", message);
     }
 
-    public void setData(Object data) {
-        this.data = data;
-    }
 }
