@@ -31,8 +31,9 @@ public class LoginFilter implements Filter {
         } else{
             Message message = new Message();
             message.setCode(Code.LOGIN_REQUIRED);
-            message.setMessage("Login required!");
+            message.setMessage("要登录啊哥们!");
 
+            response.setContentType("application/json;charset=UTF-8");
             response.getWriter().append(message.toJSONString());
         }
     }
