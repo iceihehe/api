@@ -34,5 +34,13 @@ public class DemoController {
         Message message =  new Message(data);
         return message;
     }
+
+    @RequestMapping("/sub")
+    @ResponseBody
+    public Message demoSub(){
+        String data = "This is sub!";
+        Message message =  new Message(data);
+        return message;
+    }
 }
 

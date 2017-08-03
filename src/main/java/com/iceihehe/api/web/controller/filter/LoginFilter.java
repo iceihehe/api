@@ -1,29 +1,26 @@
 package com.iceihehe.api.web.controller.filter;
 
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import java.io.IOException;
 
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
-public class LogFilter implements Filter{
+public class LoginFilter implements Filter {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginFilter.class);
 
     @Override
-    public void init(FilterConfig config){
-
-    }
+    public void init(FilterConfig config){}
 
     @Override
-    public void destroy(){
-
-    }
+    public void destroy(){}
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.printf(request.getRemoteAddr());
+        LOGGER.info("haha");
         chain.doFilter(request, response);
     }
 }
